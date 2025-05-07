@@ -1,0 +1,93 @@
+.header-burger {
+    display: none;
+    cursor: pointer;
+}
+
+
+
+.burger {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translate(0px, 100%);
+    transition: 0.5s;
+    pointer-events: none;
+    opacity: 0;
+}
+
+
+.burger-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F7EBE5;
+    text-transform: uppercase;
+}
+
+
+
+.burger-close {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.burger-list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    list-style-type: none;
+    font-size: 16px;
+}
+
+
+.burger-list li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.burger-middle {
+    border-bottom: 1px solid #0000001A;
+    padding-bottom: 11px;
+}
+
+
+.burger-top {
+    text-transform: none;
+}
+
+
+
+.burger-phone {
+    border-top: 1px solid #0000001A;
+    padding-top: 11px;
+}
+
+.burger-phone a {
+    display: flex;
+    align-items: center;
+}
+
+
+.burger.active {
+    transform: translate(0px, 0%);
+    transition: 0.5s;
+    pointer-events: all;
+    opacity: 100;
+}
+
+
+.burger.active body {
+    overflow: hidden;
+}
+
+
+

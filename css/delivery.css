@@ -1,0 +1,74 @@
+.courier .container {
+    display: flex;
+    gap: 100px;
+    align-items: flex-end;
+}
+
+
+.courier img {
+    max-width: 470px;
+    max-height: 270px;
+    justify-self: end;
+}
+
+
+.courier .container img {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+.courier-title {
+    font-size: 42px;
+    padding-bottom: 15px;    
+}
+
+.courier-subtitle {
+    font-size: 18px;
+    padding-bottom: 30px;
+    display: flex;
+}
+
+
+.courier-text {
+    padding-bottom: 15px;
+}
+
+
+
+.courier-subtext {
+    font-size: 16px;
+}
+
+.delivery-text {
+    font-size: 18px;
+}
+
+
+.delivery-subtext {
+    font-size: 16px;
+    color: #292929;
+}
+
+
+/* pickup */
+
+
+.pickup {
+}
+
+.pickup .container {
+    display: flex;
+    align-items: center;
+    gap: 150px;
+}
+
+.pickup-text {
+    padding-bottom: 15px;
+}
+
+.pickup-subtext {
+    padding-bottom: 30px;
+    display: flex;
+    font-size: 16px;
+}

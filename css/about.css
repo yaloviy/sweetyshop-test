@@ -1,0 +1,33 @@
+.about .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.about-title {
+    text-align: center;
+    padding-bottom: 30px;
+    font-size: 30px;
+}
+
+
+.about-subtitle {
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 15px;
+}
+
+
+.about-blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.about-blocks img {
+    width: 100%;
+}

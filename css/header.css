@@ -1,0 +1,85 @@
+.header-top {
+    background-color: #F7EBE5;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    
+}
+
+
+.header-top-left {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.header-top .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+.header-promotion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.header-top-right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+
+.phone {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.phone a {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.header-middle .container {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 400;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+
+.header-middle-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+
+.header-middle .container .logo {
+    max-width: 124px;
+    max-height: 124px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+.header-middle-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+

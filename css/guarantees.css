@@ -1,0 +1,42 @@
+.guarantees-title {
+    font-size: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+
+.guarantees-subtitle {
+    font-size: 18px;
+    padding-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+
+
+.guarantees-blocks {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.guarantees-block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 22px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.guarantees-block img {
+    width: 100%;
+}
+
+
+.guarantees-block p {
+    line-height: 100%;
+}
