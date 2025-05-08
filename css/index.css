@@ -16,7 +16,7 @@ header {
 
 main {
     width: 100%;
-    background-color: #F7F7F7;
+    background-color: var(--tg-theme-bg-color);
 }
 
 
@@ -41,6 +41,7 @@ a {
     font-family: "ProximaNova";
     font-weight: 400;
     line-height: 100%;
+    color: var(--tg-theme-text-color);
 }
 
 
@@ -48,17 +49,20 @@ span {
     font-family: "ProximaNova";
     font-weight: 400;
     line-height: 100%;
+    color: var(--tg-theme-text-color);
 }
 
 p {
     font-family: "Montserrat";
     font-weight: 600;
+    color: var(--tg-theme-text-color);
 }
 
 
 h1, h2, h3, h4, h5 {
     font-family: "Montserrat";
     font-weight: 600;
+    color: var(--tg-theme-text-color);
 }
 
 
@@ -77,4 +81,5 @@ section .container {
     font-size: 30px;
     padding-bottom: 50px;
     text-align: center;
+    color: var(--tg-theme-text-color);
 }

@@ -266,7 +266,7 @@
     /* footer */
 
     footer {
-        padding-top: 30px;
+        padding-top: 15px;
         padding-bottom: 15px;
     }
 
@@ -285,7 +285,11 @@
     
     .footer-phone {
         align-items: center;
-        padding-top: 30px;
+        padding-top: 10px;
+    }
+
+    .footer-phone a {
+        font-size: 16px;
     }
 
 
