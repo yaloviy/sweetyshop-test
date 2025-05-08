@@ -40,10 +40,19 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
 });
 
 
+
+
+
+const params = new URLSearchParams(tg.initData);
+const userParam = params.get('user');
+const user = JSON.parse(userParam);
+const username = user.username; // Вот username пользователя
+
+
 let usercard = document.querySelector(".header-top-right");
 
 let profUsername = document.createElement('p');
-profUsername.innerText = `${tg.WebAppUser.username}`;
+profUsername.innerText = `${username}`;
 usercard.appendChild(profUsername);
 
 
