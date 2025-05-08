@@ -1,3 +1,8 @@
+header {
+    min-height: 75px;
+}
+
+
 .header-top {
     background-color: var(--tg-theme-bg-color);
     padding-bottom: 15px;
