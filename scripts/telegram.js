@@ -40,8 +40,10 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
 });
 
 
-let usercard = document.querySelector("header-top-right");
+let usercard = document.querySelector(".header-top-right");
 
 let profUsername = document.createElement('p');
 profUsername.innerText = `${tg.initDataUnsafe.user.username}`;
 usercard.appendChild(profUsername);
+
+
