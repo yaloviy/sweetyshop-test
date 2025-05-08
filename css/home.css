@@ -14,7 +14,7 @@
 .start .container h1 {
     font-weight: 600;
     font-size: 22px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--tg-theme-text-color);;
     padding-bottom: 5px;
 }
 
@@ -260,7 +260,7 @@
 
 .info-block span {
     font-size: 14px;
-    color: #292929;
+    color: var(--tg-theme-text-color);;
 }
 
 .info-block img {

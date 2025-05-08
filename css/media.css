@@ -305,6 +305,17 @@
     /* guarantees */
 
 
+    .guarantees-blocks {
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .guarantees-block img {
+        max-width: 150px;
+        max-height: 150px;
+    }
+
     .guarantees-title {
         font-size: 18px;
         padding-bottom: 10px;

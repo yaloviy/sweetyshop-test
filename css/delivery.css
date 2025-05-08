@@ -47,7 +47,7 @@
 
 .delivery-subtext {
     font-size: 16px;
-    color: #292929;
+    color: var(--tg-theme-text-color);
 }
 
 
