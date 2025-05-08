@@ -422,6 +422,9 @@
 
     .sets-block span {
         font-size: 14px;
+        height: 50px;
+        overflow-y: scroll;
+        display: inline-block;
     }
 
     .sets-block-price {
@@ -433,7 +436,7 @@
     }
 
     .sets-block-text {
-        padding: 10px 20px;
+        padding: 5px 10px;
     }
     
     .sets-block-cart img {
