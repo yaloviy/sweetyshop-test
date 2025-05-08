@@ -5,10 +5,18 @@ tg.expand();
 tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = "#2cab37";
 
+
+
+
+
+
 let item = "";
 
 
 const products = document.querySelectorAll('.products-block-cart')
+
+
+
 
 
 products.forEach(el => {
@@ -30,3 +38,10 @@ products.forEach(el => {
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	tg.sendData(item);
 });
+
+
+let usercard = document.querySelector("header-top-right");
+
+let profUsername = document.createElement('p');
+profUsername.innerText = `${tg.initDataUnsafe.user.username}`;
+usercard.appendChild(profUsername);
