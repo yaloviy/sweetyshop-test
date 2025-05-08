@@ -1,9 +1,5 @@
 let tg = window.Telegram.WebApp;
 
-tg.expand();
-
-
-
 const params = new URLSearchParams(tg.initData);
 const userParam = params.get('user');
 const user = JSON.parse(userParam);
