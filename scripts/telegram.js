@@ -49,6 +49,6 @@ const user = JSON.parse(userParam);
 const username = user.username; // Вот username пользователя
 
 
-let usercard = document.querySelector(".header-top-left");
-document.body.insertAdjacentHTML("afterend", `<p class="telegram-username">${username}</p>`);
+let usercard = document.querySelector(".header-container");
+document.body.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${username}</p>`);
 
