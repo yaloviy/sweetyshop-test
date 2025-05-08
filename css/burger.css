@@ -1,8 +1,33 @@
 .header-burger {
     display: none;
     cursor: pointer;
-    color: var(--tg-theme-text-color);
+    background-color: var(--tg-theme-text-color);
+    width: 25px;
+    height: 2px;
+    position: relative;
 }
+
+
+.header-burger::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    top: -5px;
+    left: 0;
+    background-color: var(--tg-theme-text-color);
+}
+
+.header-burger::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    top: 5px;
+    left: 0;
+    background-color: var(--tg-theme-text-color);
+}
+
 
 
 
@@ -27,18 +52,44 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--tg-theme-bg-color);;
+    background-color: var(--tg-theme-bg-color);
     text-transform: uppercase;
 }
 
 
 
 .burger-close {
-    position: absolute;
-    top: 40px;
-    left: 20px;
+    position: fixed;
+    top: 36px;
+    right: 20px;
     cursor: pointer;
+    width: 25px;
+    height: 25px;
 }
+
+
+.burger-close::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    top: 0px;
+    left: 0;
+    background-color: var(--tg-theme-text-color);
+    rotate: 45deg;
+}
+
+.burger-close::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    top: 0px;
+    left: 0;
+    background-color: var(--tg-theme-text-color);
+    rotate: -45deg;
+}
+
 
 .burger-list {
     display: flex;
@@ -53,10 +104,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--tg-theme-text-color);
 }
 
 .burger-middle {
-    border-bottom: 1px solid #0000001A;
+    border-bottom: 1px solid var(--tg-theme-text-color);;
     padding-bottom: 11px;
 }
 
@@ -68,7 +120,7 @@
 
 
 .burger-phone {
-    border-top: 1px solid #0000001A;
+    border-top: 1px solid var(--tg-theme-text-color);;
     padding-top: 11px;
 }
 
