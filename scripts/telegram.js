@@ -111,11 +111,15 @@ tg.MainButton.color = "#2cab37";
             console.log(cart)
         
             const totalPrice = cart.reduce((sum, product) => sum + product.price * product.count, 0);
-            const buttonText = `Оплатить ${totalPrice}₽test`;
+            const buttonText = `Оплатить ${totalPrice}₽testttt`;
 
             tg.MainButton.setParams({
                 text: buttonText,
               });
+              
+            tg.MainButton.setParams({
+                text: buttonText,
+            });
         
             if (!tg.MainButton.isVisible) {
                 tg.MainButton.show();
