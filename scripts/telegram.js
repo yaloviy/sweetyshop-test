@@ -93,7 +93,8 @@ tg.MainButton.color = "#2cab37";
         if (cart.length === 0) {
             tg.MainButton.hide();
         } else {
-            tg.MainButton.setText("Посмотреть заказ");
+            const totalPrice = cart.reduce((sum, product) => sum + product.price * product.count, 0)
+            tg.MainButton.setText(`Оплатить ${totalPrice}`);
             tg.MainButton.show();
         }
     }
@@ -111,7 +112,7 @@ tg.MainButton.color = "#2cab37";
             const productIndex = cart.indexOf(product)
             cart[productIndex]['count'] = cart[productIndex]['count'] + 1
             quantity(id)
-            console.log(cart.length)
+            mainButtonShowTG()
        }
     }
     
@@ -138,6 +139,7 @@ tg.MainButton.color = "#2cab37";
         } else {
             productInCart['count'] = productInCart['count'] - 1
             quantity(id)
+            mainButtonShowTG()
         }
 
     }
