@@ -4,7 +4,7 @@ tg.expand();
 tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = "#2cab37";
 
-
+let usercard = document.querySelector(".header-container");
 const urlParams = new URLSearchParams(window.location.search);
 const user = {
     firstname: urlParams.get('firstname'),
@@ -73,7 +73,7 @@ if (user.id) {
             <img src="img/sets/${product.id}.png" alt="set">
             <div class="products-block-text">
                 <p class="products-block-title">${product.name}</p>
-                <p class="products-block-price">${product.price}₽</p>
+                <p class="products-block-price">${product.price}₽₽</p>
             </div>
             <button onclick="addCart(${product.id})" class="products-block-cart">
                 <p>Добавить</p>
