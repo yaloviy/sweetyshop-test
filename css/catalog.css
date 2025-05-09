@@ -9,7 +9,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
-
 }
 
 .products .container {
@@ -25,6 +24,7 @@
     background-color: white;
     border-radius: 10px;
     max-width: 370px;
+    background-color: var(--tg-theme-bg-color);
 }
 
 
@@ -47,19 +47,6 @@
     overflow-y: scroll;
 }
 
-
-
-
-.products-block-price-wrapper {
-    padding-top: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 22px;
-    padding-bottom: 15px;
-}
-
-
 .products-block-price {
     color: #E7426A;
     font-size: 18px;
@@ -68,18 +55,69 @@
 .products-block-cart {
     display: flex;
     align-items: center;
-    gap: 11px;
-    font-size: 14px;
+    gap: 10px;
     border: none;
-    background-color: inherit;
+    background-color: #F7EBE5;
+    justify-content: center;
+    padding: 10px 0px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
-.products-block-cart p {
+
+
+
+.products-block.active .products-block-cart {
+    transition: 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    overflow: hidden;
+    transform: translate(0px, -20px);
+}
+
+
+.block-counter {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;              
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(0px, 20px);     
+    transition: 0.3s;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+}
+
+
+.products-block.active .block-counter {
+    visibility: visible;
+    pointer-events: all;
+    opacity: 100;
+    transform: translate(0px, -41px);     
     transition: 0.3s;
 }
 
-.products-block-cart:hover p {
-    color: #E7426A;
-    transition: 0.3s;
+
+.counter {
+    width: 35px;
+    height: 30px;
+    background-color: inherit;
+    border: none;
+    font-size: 20px;
+    color: var(--tg-theme-text-color);
+    border-radius: 5px;
+    cursor: pointer;
 }
+
+
+.block-minuscart {
+    background-color: #FF0000;
+}
+
+
+.block-addcart {
+    background-color: #F7EBE5;
+}
+

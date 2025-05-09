@@ -479,7 +479,7 @@
 
     .products-block-title {
         font-size: 14px;
-        padding-bottom: 5px;
+        padding-bottom: 0px;
     }
 
     .products-block span {
@@ -491,7 +491,6 @@
     }
 
     .products-block-cart p {
-        display: none;
     }
 
 
