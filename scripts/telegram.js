@@ -89,22 +89,22 @@ tg.MainButton.color = "#2cab37";
 
 
     
-    function mainButtonShowTG() {
-        if (cart.length === 0) {
-            tg.MainButton.hide();
-            return;
-        }
-    
-        const totalPrice = cart.reduce((sum, product) => sum + product.price * product.count, 0);
-        const buttonText = `Оплатить ${totalPrice} руб.`;
-    
-        tg.MainButton.setText(buttonText);
-    
-        if (!tg.MainButton.isVisible) {
-            tg.MainButton.show();
-        }
-    
-        console.log("Обновлено:", totalPrice);
+    function  mainButtonShowTG () {
+        setTimeout(() => {
+            if (cart.length === 0) {
+                tg.MainButton.hide();
+                return;
+            }
+        
+            const totalPrice = cart.reduce((sum, product) => sum + product.price * product.count, 0);
+            const buttonText = `Оплатить ${totalPrice}₽`;
+        
+            tg.MainButton.setText(buttonText);
+        
+            if (!tg.MainButton.isVisible) {
+                tg.MainButton.show();
+            }
+        }, 1000)
     }
     
 
@@ -116,12 +116,12 @@ tg.MainButton.color = "#2cab37";
             const productIndex = cart.indexOf(product)
             cart[productIndex]['count'] = 1
             quantity(id)
-            setTimeout(() => mainButtonShowTG(), 100);
+            mainButtonShowTG()
        } else {
             const productIndex = cart.indexOf(product)
             cart[productIndex]['count'] = cart[productIndex]['count'] + 1
             quantity(id)
-            setTimeout(() => mainButtonShowTG(), 100);
+            mainButtonShowTG()
        }
     }
     
@@ -144,11 +144,11 @@ tg.MainButton.color = "#2cab37";
         if (productInCart.count === 1) {
             cart.splice(productIndex, 1);
             document.getElementById(id).classList.remove('active')
-            setTimeout(() => mainButtonShowTG(), 100);
+            mainButtonShowTG()
         } else {
             productInCart['count'] = productInCart['count'] - 1
             quantity(id)
-            setTimeout(() => mainButtonShowTG(), 100);
+            mainButtonShowTG()
         }
 
     }
