@@ -10,7 +10,7 @@ const urlParams = new URLSearchParams(window.location.search);
 
 
 function isEmpty(str) {
-  if (str.trim() == '') 
+  if (str.trim() == '' || str == null) 
     return false;
     
   return true;
@@ -19,16 +19,12 @@ function isEmpty(str) {
 
 
 
-const firstname = urlParams.get('firstname')
-const lastname = urlParams.get('lastname')
-const username = urlParams.get('username')
+const firstname = sessionStorage.getItem('firstname') === null ? sessionStorage.setItem('firstname', urlParams.get('firstname')) : sessionStorage.getItem('firstname')
+const lastname = sessionStorage.getItem('lastname') === null ? sessionStorage.setItem('lastname', urlParams.get('lastname')) : sessionStorage.getItem('lastname')
+const username = sessionStorage.getItem('username') === null ? sessionStorage.setItem('username', urlParams.get('username')) : sessionStorage.getItem('username')
 
 
-localStorage.setItem('firstname', firstname);
-localStorage.setItem('lastname', lastname);
-localStorage.setItem('username', username);
-
-usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${isEmpty(localStorage.getItem('username')) ? localStorage.getItem('username') : isEmpty(localStorage.getItem('firstname')) ? localStorage.getItem('firstname') : 'Добро пожаловать!'}</p>`);
+usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${isEmpty(sessionStorage.getItem('username')) ? '@' + sessionStorage.getItem('username') : isEmpty(sessionStorage.getItem('firstname')) ? sessionStorage.getItem('firstname') : 'Добро пожаловать!'}</p>`);
 
 
     const products = [

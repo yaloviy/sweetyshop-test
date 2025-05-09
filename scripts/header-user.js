@@ -8,4 +8,4 @@ function isEmpty(str) {
   return true;
 }
 
-usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${isEmpty(localStorage.getItem('username')) ? localStorage.getItem('username') : isEmpty(localStorage.getItem('firstname')) ? localStorage.getItem('firstname') : 'Добро пожаловать!'}</p>`);
+usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${isEmpty(sessionStorage.getItem('username')) ? '@' + sessionStorage.getItem('username') : isEmpty(sessionStorage.getItem('firstname')) ? sessionStorage.getItem('firstname') : 'Добро пожаловать!'}</p>`);
