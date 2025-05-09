@@ -6,16 +6,29 @@ tg.MainButton.color = "#2cab37";
 
 let usercard = document.querySelector(".header-container");
 const urlParams = new URLSearchParams(window.location.search);
-const user = {
-    firstname: urlParams.get('firstname'),
-    lastname: urlParams.get('lastname'),
-    username: urlParams.get('username')
-};
 
-if (user.id) {
-    const username = user.username || user.firstname || 'Покупатель';
-    usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${username}</p>`);
+
+
+function isEmpty(str) {
+  if (str.trim() == '') 
+    return false;
+    
+  return true;
 }
+
+
+
+
+const firstname = urlParams.get('firstname')
+const lastname = urlParams.get('lastname')
+const username = urlParams.get('username')
+
+
+localStorage.setItem('firstname', firstname);
+localStorage.setItem('lastname', lastname);
+localStorage.setItem('username', username);
+
+usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${isEmpty(localStorage.getItem('username')) ? localStorage.getItem('username') : isEmpty(localStorage.getItem('firstname')) ? localStorage.getItem('firstname') : 'Добро пожаловать!'}</p>`);
 
 
     const products = [
@@ -73,7 +86,7 @@ if (user.id) {
             <img src="img/sets/${product.id}.png" alt="set">
             <div class="products-block-text">
                 <p class="products-block-title">${product.name}</p>
-                <p class="products-block-price">${product.price}₽₽</p>
+                <p class="products-block-price">${product.price}₽</p>
             </div>
             <button onclick="addCart(${product.id})" class="products-block-cart">
                 <p>Добавить</p>

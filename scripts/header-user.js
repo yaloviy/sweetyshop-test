@@ -1,15 +1,11 @@
-// let tg = window.Telegram.WebApp;
-
-// const params = new URLSearchParams(tg.initData);
-// const userParam = params.get('user');
-// const user = JSON.parse(userParam);
-// const username = user.username;
+let tg = window.Telegram.WebApp;
 let usercard = document.querySelector(".header-container");
 
-// if (username == null) {
-//     usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${user.first_name}</p>`);
-// } else {
-//     usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">@${user.username}</p>`);
-// }
+function isEmpty(str) {
+  if (str.trim() == '') 
+    return false;
+    
+  return true;
+}
 
-usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">Добро пожаловать!</p>`);
+usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${isEmpty(localStorage.getItem('username')) ? localStorage.getItem('username') : isEmpty(localStorage.getItem('firstname')) ? localStorage.getItem('firstname') : 'Добро пожаловать!'}</p>`);
