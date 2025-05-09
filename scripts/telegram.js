@@ -61,7 +61,7 @@ tg.MainButton.color = "#2cab37";
             <img src="img/sets/${product.id}.png" alt="set">
             <div class="products-block-text">
                 <p class="products-block-title">${product.name}</p>
-                <p class="products-block-price">${product.price}₽₽</p>
+                <p class="products-block-price">${product.price}₽123</p>
             </div>
             <button onclick="addCart(${product.id})" class="products-block-cart">
                 <p>Добавить</p>
@@ -177,11 +177,11 @@ tg.MainButton.color = "#2cab37";
         usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">@${user.username}</p>`);
     }
     
-    Telegram.WebApp.onEvent("mainButtonClicked", function(){
-        if (cart.length === 0) {
-            
-        } else {
-            Telegram.WebApp.sendData(JSON.stringify(cart));
-        }
-    });
-    
+Telegram.WebApp.onEvent("mainButtonClicked", function() {
+    if (cart.length === 0) {
+        tg.MainButton.hide();
+        return;
+    }
+    Telegram.WebApp.sendData(JSON.stringify(cart));
+    Telegram.WebApp.close();
+});
