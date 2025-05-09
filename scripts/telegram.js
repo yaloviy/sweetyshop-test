@@ -61,7 +61,7 @@ tg.MainButton.color = "#2cab37";
             <img src="img/sets/${product.id}.png" alt="set">
             <div class="products-block-text">
                 <p class="products-block-title">${product.name}</p>
-                <p class="products-block-price">${product.price}₽</p>
+                <p class="products-block-price">${product.price}₽₽</p>
             </div>
             <button onclick="addCart(${product.id})" class="products-block-cart">
                 <p>Добавить</p>
@@ -181,7 +181,7 @@ tg.MainButton.color = "#2cab37";
         if (cart.length === 0) {
             
         } else {
-            tg.sendData(JSON.stringify(cart));
+            Telegram.WebApp.sendData(JSON.stringify(cart));
         }
     });
     
