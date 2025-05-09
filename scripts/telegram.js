@@ -88,22 +88,31 @@ tg.MainButton.color = "#2cab37";
     ]
 
 
+    let debounceTimer;
+    function debouncedMainButtonShowTG() {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => mainButtonShowTG(), 100);
+    }
+
     
-    function mainButtonShowTG () {
+    function mainButtonShowTG() {
         if (cart.length === 0) {
             tg.MainButton.hide();
-        } else {
-            const totalPrice = cart.reduce((sum, product) => sum + product.price * product.count, 0)
-            if (tg.MainButton.is_visible) {
-                tg.MainButton.setText(`Оплатить ${totalPrice} руб.`);
-                console.log(totalPrice)
-            } else {
-                tg.MainButton.setText(`Оплатить ${totalPrice} руб.`);
-                tg.MainButton.show();
-                console.log(totalPrice)
-            }
+            return;
         }
+    
+        const totalPrice = cart.reduce((sum, product) => sum + product.price * product.count, 0);
+        const buttonText = `Оплатить ${totalPrice} руб.`;
+    
+        tg.MainButton.setText(buttonText);
+    
+        if (!tg.MainButton.isVisible) {
+            tg.MainButton.show();
+        }
+    
+        console.log("Обновлено:", totalPrice);
     }
+    
 
     
     function addCart (id) {
