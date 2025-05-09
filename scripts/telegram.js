@@ -88,12 +88,6 @@ tg.MainButton.color = "#2cab37";
     ]
 
 
-    let debounceTimer;
-    function debouncedMainButtonShowTG() {
-        clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(() => mainButtonShowTG(), 100);
-    }
-
     
     function mainButtonShowTG() {
         if (cart.length === 0) {
@@ -122,12 +116,12 @@ tg.MainButton.color = "#2cab37";
             const productIndex = cart.indexOf(product)
             cart[productIndex]['count'] = 1
             quantity(id)
-            mainButtonShowTG()
+            setTimeout(() => mainButtonShowTG(), 100);
        } else {
             const productIndex = cart.indexOf(product)
             cart[productIndex]['count'] = cart[productIndex]['count'] + 1
             quantity(id)
-            mainButtonShowTG()
+            setTimeout(() => mainButtonShowTG(), 100);
        }
     }
     
@@ -150,11 +144,11 @@ tg.MainButton.color = "#2cab37";
         if (productInCart.count === 1) {
             cart.splice(productIndex, 1);
             document.getElementById(id).classList.remove('active')
-            mainButtonShowTG()
+            setTimeout(() => mainButtonShowTG(), 100);
         } else {
             productInCart['count'] = productInCart['count'] - 1
             quantity(id)
-            mainButtonShowTG()
+            setTimeout(() => mainButtonShowTG(), 100);
         }
 
     }
