@@ -181,7 +181,7 @@ tg.MainButton.color = "#2cab37";
         if (cart.length === 0) {
             
         } else {
-            tg.sendData(cart);
+            tg.sendData(JSON.stringify(cart));
         }
     });
     
