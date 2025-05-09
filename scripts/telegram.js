@@ -59,20 +59,24 @@ tg.MainButton.color = "#2cab37";
     products.forEach(product => {
         productsBlocks.insertAdjacentHTML("beforeend", 
         `
-        <div class="products-block">
+        <div class="products-block" id="${product.id}">
             <img src="img/sets/${product.id}.png" alt="set">
             <div class="products-block-text">
                 <p class="products-block-title">${product.name}</p>
-                <p class="products-block-price">${product.price}𐔷</p>
+                <p class="products-block-price">${product.price} руб.</p>
             </div>
             <button onclick="addCart(${product.id})" class="products-block-cart">
                 <p>Добавить</p>
                 <img src="img/icons/cart.svg" alt="cart">
             </button>
             <div class="block-counter">
-                <button class="block-minuscart counter">-<button>
-                <button class="block-addcart counter">+<button>
+                <button onclick="removeCart(${product.id})" class="block-minuscart counter">-</button>
+                <button onclick="addCart(${product.id})" class="block-addcart counter">+</button>
             </div>
+            <div class="block-quantity">
+                <p class="block-quantity-p"></p>
+            </div>
+
         </div>
         `
         );
@@ -88,15 +92,16 @@ tg.MainButton.color = "#2cab37";
             cart.push(product)
             const productIndex = cart.indexOf(product)
             cart[productIndex]['count'] = 1
+            quantity(id)
        } else {
             const productIndex = cart.indexOf(product)
             cart[productIndex]['count'] = cart[productIndex]['count'] + 1
-            console.log(cart)
+            quantity(id)
        }
     }
     
     
-    
+    const Productblock = document.querySelectorAll('.products-block') 
     const addCartButtons = document.querySelectorAll('.products-block-cart')
     
     addCartButtons.forEach(button => {
@@ -107,13 +112,38 @@ tg.MainButton.color = "#2cab37";
 
 
 
+    function removeCart (id) {
+        const product = products.find(product => product.id === id)
+        productInCart = cart.find(product => product.id === id)
+        const productIndex = cart.indexOf(product)
+        if (productInCart.count === 1) {
+            cart.splice(productIndex, 1);
+            document.getElementById(id).classList.remove('active')
+        } else {
+            productInCart['count'] = productInCart['count'] - 1
+            quantity(id)
+        }
 
-const params = new URLSearchParams(tg.initData);
-const userParam = params.get('user');
-const user = JSON.parse(userParam);
-const username = user.username; 
+    }
+
+    function quantity (id) {
+        const block = document.getElementById(id)
+        const quantity = block.querySelector('.block-quantity-p')
+        product = cart.find(product => product.id === id)
+        quantity.textContent = `${product['count']}`
+    }
 
 
-let usercard = document.querySelector(".header-container");
-usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${username}</p>`);
-
+    const params = new URLSearchParams(tg.initData);
+    const userParam = params.get('user');
+    const user = JSON.parse(userParam);
+    const username = user.username;
+    let usercard = document.querySelector(".header-container");
+    
+    if (username == null) {
+        usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${user.first_name}</p>`);
+    } else {
+        usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">@${user.username}</p>`);
+    }
+    
+    

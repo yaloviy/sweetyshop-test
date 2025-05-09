@@ -25,6 +25,7 @@
     border-radius: 10px;
     max-width: 370px;
     background-color: var(--tg-theme-bg-color);
+    position: relative;
 }
 
 
@@ -62,8 +63,13 @@
     padding: 10px 0px;
     border-radius: 10px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
+.products-block-cart:active {
+    transform: scale(0.5);
+    transition: 0.3;
+  }
 
 
 
@@ -95,7 +101,7 @@
     visibility: visible;
     pointer-events: all;
     opacity: 100;
-    transform: translate(0px, -41px);     
+    transform: translate(0px, -33px);     
     transition: 0.3s;
 }
 
@@ -109,7 +115,13 @@
     color: var(--tg-theme-text-color);
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s;
 }
+
+.counter:active {
+    transform: scale(0.5); /* Уменьшение кнопки */
+    transition: 0.3;
+  }
 
 
 .block-minuscart {
@@ -121,3 +133,32 @@
     background-color: #F7EBE5;
 }
 
+
+
+.block-quantity {
+    position: absolute;
+    right: -8px;
+    top: -10px;
+    background-color: #F7EBE5;
+    padding: 15px 15px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+
+.block-quantity p {
+    position: absolute;
+    transform: translate(-50%, -50%)
+}
+
+.products-block.active .block-quantity {
+    visibility: visible;
+    opacity: 100;
+    transition: 0.3;
+}

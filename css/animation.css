@@ -281,3 +281,33 @@
     transform: translate(0px, 0px);
     transition: 0.5s;
 }
+
+
+
+/* catalog */
+
+
+.products-blocks.element-animation {
+    transform: translate(0px, 100px);
+    transition: 0.5s;
+}
+
+
+
+.products-blocks.element-animation__show {
+    transform: translate(0px, 0px);
+    transition: 0.5s;
+}
+
+
+
+.catalog-title.element-animation {
+    opacity: 0;
+    transition: 0.5s;
+}
+
+
+.catalog-title.element-animation__show {
+    opacity: 100;
+    transition: 0.5s;
+}
