@@ -176,7 +176,7 @@ tg.MainButton.color = "#2cab37";
         usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${username}</p>`);
     }
 
-
+    console.log(user)
     
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     if (cart.length === 0) {
