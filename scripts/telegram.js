@@ -7,14 +7,13 @@ tg.MainButton.color = "#2cab37";
 
 const urlParams = new URLSearchParams(window.location.search);
 const user = {
-    id: urlParams.get('userid'),
-    first_name: urlParams.get('firstname'),
-    last_name: urlParams.get('lastname'),
+    firstname: urlParams.get('firstname'),
+    lastname: urlParams.get('lastname'),
     username: urlParams.get('username')
 };
 
 if (user.id) {
-    const username = user.username || user.first_name || 'Покупатель';
+    const username = user.username || user.firstname || 'Покупатель';
     usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${username}</p>`);
 }
 
@@ -74,7 +73,7 @@ if (user.id) {
             <img src="img/sets/${product.id}.png" alt="set">
             <div class="products-block-text">
                 <p class="products-block-title">${product.name}</p>
-                <p class="products-block-price">${product.price}₽₽</p>
+                <p class="products-block-price">${product.price}₽</p>
             </div>
             <button onclick="addCart(${product.id})" class="products-block-cart">
                 <p>Добавить</p>
