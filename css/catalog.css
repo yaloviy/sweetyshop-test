@@ -164,6 +164,7 @@
     pointer-events: none;
     visibility: hidden;
     transition: 0.3s;
+    transform: translate(0px, -20px);
 }
 
 
@@ -177,4 +178,5 @@
     visibility: visible;
     opacity: 100;
     transition: 0.3;
+    transform: translate(0px, 0px);
 }
