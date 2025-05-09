@@ -66,6 +66,11 @@
     transition: 0.3s;
 }
 
+
+.products-block-cart {
+    color: black;
+}
+
 .products-block-cart:active {
     transform: scale(0.5);
     transition: 0.3;
@@ -164,7 +169,8 @@
 
 .block-quantity p {
     position: absolute;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    color: black;
 }
 
 .products-block.active .block-quantity {

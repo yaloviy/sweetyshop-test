@@ -83,6 +83,18 @@ tg.MainButton.color = "#2cab37";
         );
     });
 
+    const Productblock = document.querySelectorAll('.products-block') 
+    const addCartButtons = document.querySelectorAll('.products-block-cart')
+    
+    addCartButtons.forEach(button => {
+        button.addEventListener('click', e => {
+            button.parentElement.classList.add('active')
+        })
+    })
+
+
+
+
     let cart = [
 
     ]
@@ -95,16 +107,20 @@ tg.MainButton.color = "#2cab37";
                 tg.MainButton.hide();
                 return;
             }
+
+            console.log(cart)
         
             const totalPrice = cart.reduce((sum, product) => sum + product.price * product.count, 0);
-            const buttonText = `Оплатить ${totalPrice}₽`;
-        
-            tg.MainButton.setText(buttonText);
+            const buttonText = `Оплатить ${totalPrice}₽test`;
+
+            tg.MainButton.setParams({
+                text: buttonText,
+              });
         
             if (!tg.MainButton.isVisible) {
                 tg.MainButton.show();
             }
-        }, 1000)
+        }, 100)
     }
     
 
@@ -126,14 +142,6 @@ tg.MainButton.color = "#2cab37";
     }
     
     
-    const Productblock = document.querySelectorAll('.products-block') 
-    const addCartButtons = document.querySelectorAll('.products-block-cart')
-    
-    addCartButtons.forEach(button => {
-        button.addEventListener('click', e => {
-            button.parentElement.classList.add('active')
-        })
-    })
 
 
 
