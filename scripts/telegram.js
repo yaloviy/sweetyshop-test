@@ -8,6 +8,7 @@ tg.MainButton.color = "#2cab37";
 
 
 
+
     const products = [
         {
             id: 1,
@@ -85,6 +86,18 @@ tg.MainButton.color = "#2cab37";
     let cart = [
 
     ]
+
+
+    
+    function mainButtonShowTG () {
+        if (cart.length === 0) {
+            tg.MainButton.hide();
+        } else {
+            tg.MainButton.setText("Посмотреть заказ");
+            tg.MainButton.show();
+        }
+    }
+
     
     function addCart (id) {
         const product = products.find(product => product.id === id)
@@ -93,17 +106,12 @@ tg.MainButton.color = "#2cab37";
             const productIndex = cart.indexOf(product)
             cart[productIndex]['count'] = 1
             quantity(id)
-            if (tg.MainButton.isVisible) {
-                tg.MainButton.hide();
-            }
-            else {
-                tg.MainButton.setText("Посмотреть заказ");
-                tg.MainButton.show();
-            }
+            mainButtonShowTG()
        } else {
             const productIndex = cart.indexOf(product)
             cart[productIndex]['count'] = cart[productIndex]['count'] + 1
             quantity(id)
+            console.log(cart.length)
        }
     }
     
@@ -126,13 +134,7 @@ tg.MainButton.color = "#2cab37";
         if (productInCart.count === 1) {
             cart.splice(productIndex, 1);
             document.getElementById(id).classList.remove('active')
-            if (tg.MainButton.isVisible) {
-                tg.MainButton.hide();
-            }
-            else {
-                tg.MainButton.setText("Посмотреть заказ");
-                tg.MainButton.hide();
-            }
+            mainButtonShowTG()
         } else {
             productInCart['count'] = productInCart['count'] - 1
             quantity(id)
