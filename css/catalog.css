@@ -103,8 +103,7 @@
     pointer-events: none;
     opacity: 0;
     transform: translate(0px, 20px);     
-    transition: 0.3s;
-    color: black;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+    transition: 0.3s;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 }
 
 
@@ -123,7 +122,7 @@
     background-color: inherit;
     border: none;
     font-size: 20px;
-    color: var(--tg-theme-text-color);
+    color: black;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
