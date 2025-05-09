@@ -5,6 +5,18 @@ tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = "#2cab37";
 
 
+const user = tg.initDataUnsafe.user;
+const usercard = document.querySelector(".header-container");
+
+if (user) {
+    const username = user.username 
+        ? `@${user.username}` 
+        : user.first_name || 'Покупатель';
+    
+    usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${username}</p>`);
+}
+
+
 
     const products = [
         {
@@ -105,7 +117,7 @@ tg.MainButton.color = "#2cab37";
                 return;
             }
         
-            const buttonText = `Оплатить ${cart.reduce((sum, product) => sum + product.price * product.count, 0)}₽`;
+            const buttonText = `Оплатить ${cart.reduce((sum, product) => sum + product.price * product.count, 0)}₽₽`;
 
             tg.MainButton.setParams({
                 text: buttonText,
@@ -163,20 +175,6 @@ tg.MainButton.color = "#2cab37";
         product = cart.find(product => product.id === id)
         quantity.textContent = `${product['count']}`
     }
-
-
-    const user = tg.initDataUnsafe.user;
-    const usercard = document.querySelector(".header-container");
-
-    if (user) {
-        const username = user.username 
-            ? `@${user.username}` 
-            : user.first_name || 'Покупатель';
-        
-        usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${username}</p>`);
-    }
-
-    console.log(user)
     
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     if (cart.length === 0) {
