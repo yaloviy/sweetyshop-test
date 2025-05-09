@@ -69,7 +69,12 @@
 .products-block-cart:active {
     transform: scale(0.5);
     transition: 0.3;
-  }
+}
+
+.products-block-cart:focus {
+    outline: none; 
+}
+
 
 
 
@@ -119,9 +124,14 @@
 }
 
 .counter:active {
-    transform: scale(0.5); /* Уменьшение кнопки */
+    transform: scale(0.5); 
     transition: 0.3;
-  }
+}
+
+.counter:focus {
+    outline: none; 
+}
+
 
 
 .block-minuscart {
