@@ -7,9 +7,9 @@ tg.MainButton.color = "#2cab37";
 
 const urlParams = new URLSearchParams(window.location.search);
 const user = {
-    id: urlParams.get('user_id'),
-    first_name: urlParams.get('first_name'),
-    last_name: urlParams.get('last_name'),
+    id: urlParams.get('userid'),
+    first_name: urlParams.get('firstname'),
+    last_name: urlParams.get('lastname'),
     username: urlParams.get('username')
 };
 
@@ -74,7 +74,7 @@ if (user.id) {
             <img src="img/sets/${product.id}.png" alt="set">
             <div class="products-block-text">
                 <p class="products-block-title">${product.name}</p>
-                <p class="products-block-price">${product.price}₽</p>
+                <p class="products-block-price">${product.price}₽₽</p>
             </div>
             <button onclick="addCart(${product.id})" class="products-block-cart">
                 <p>Добавить</p>
