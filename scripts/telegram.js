@@ -5,18 +5,18 @@ tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = "#2cab37";
 
 
-const user = tg.initDataUnsafe.user;
 const usercard = document.querySelector(".header-container");
 
-if (user) {
-    const username = user.username 
-        ? `@${user.username}` 
-        : user.first_name || 'Покупатель';
+
+// const user = tg.initDataUnsafe.user;
+// if (user) {
+//     const username = user.username 
+//         ? `@${user.username}` 
+//         : user.first_name || 'Покупатель';
     
-    usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${username}</p>`);
-}
+// }
 
-
+usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">Добро пожаловать!</p>`);
 
     const products = [
         {
@@ -117,7 +117,7 @@ if (user) {
                 return;
             }
         
-            const buttonText = `Оплатить ${cart.reduce((sum, product) => sum + product.price * product.count, 0)}₽₽`;
+            const buttonText = `Оплатить ${cart.reduce((sum, product) => sum + product.price * product.count, 0)}₽`;
 
             tg.MainButton.setParams({
                 text: buttonText,
