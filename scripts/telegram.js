@@ -61,7 +61,7 @@ tg.MainButton.color = "#2cab37";
             <img src="img/sets/${product.id}.png" alt="set">
             <div class="products-block-text">
                 <p class="products-block-title">${product.name}</p>
-                <p class="products-block-price">${product.price}₽123</p>
+                <p class="products-block-price">${product.price}₽proverkabota</p>
             </div>
             <button onclick="addCart(${product.id})" class="products-block-cart">
                 <p>Добавить</p>
@@ -179,9 +179,20 @@ tg.MainButton.color = "#2cab37";
     
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     if (cart.length === 0) {
-        tg.MainButton.hide();
+        Telegram.WebApp.showAlert("Корзина пуста! Добавьте товары");
         return;
     }
-    Telegram.WebApp.sendData(JSON.stringify(cart));
+
+
+    const orderData = cart.map(item => ({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        count: item.count,
+        description: item.description
+    }));
+
+
+    Telegram.WebApp.sendData(JSON.stringify(orderData));
     Telegram.WebApp.close();
 });
