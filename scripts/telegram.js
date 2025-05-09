@@ -178,17 +178,42 @@ usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">Добр
     
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     if (cart.length === 0) {
-        Telegram.WebApp.showAlert("Корзина пуста! Добавьте товары.");
+        Telegram.WebApp.showAlert("Корзина пуста!");
         return;
     }
 
-    const orderData = cart.map(item => ({
-        id: item.id,
-        name: item.name,
-        price: item.price,
-        count: item.count
-    }));
+    // Формируем данные заказа
+    const orderData = {
+        products: cart.map(item => ({
+            id: item.id,
+            name: item.name,
+            count: item.count,
+            price: item.price
+        })),
+        total: cart.reduce((sum, item) => sum + item.price * item.count, 0),
+        user_id: Telegram.WebApp.initDataUnsafe.user?.id
+    };
 
-    Telegram.WebApp.sendData(JSON.stringify(orderData));
-    Telegram.WebApp.close();  
+    // Параметры платежа
+    const invoice = {
+        title: `Заказ в SweetyShop (${orderData.products.length} товаров)`,
+        description: `Сумма: ${orderData.total}₽`,
+        currency: "RUB",
+        prices: [
+            { label: "Итого", amount: orderData.total * 100 } // Сумма в копейках!
+        ],
+        payload: JSON.stringify(orderData), // Данные для бота
+        provider_token: "1744374395:TEST:cf94e0f4339917b14ba4" // Получить у @BotFather
+    };
+
+    // Открываем платежную форму
+    Telegram.WebApp.openInvoice(invoice, function(status) {
+        if (status === "paid") {
+            // Оплата прошла успешно
+            Telegram.WebApp.showAlert("Оплата прошла успешно!");
+            Telegram.WebApp.close();
+        } else if (status === "failed") {
+            Telegram.WebApp.showAlert("Оплата не удалась. Попробуйте ещё раз.");
+        }
+    });
 });
