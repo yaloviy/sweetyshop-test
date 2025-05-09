@@ -61,7 +61,7 @@ tg.MainButton.color = "#2cab37";
             <img src="img/sets/${product.id}.png" alt="set">
             <div class="products-block-text">
                 <p class="products-block-title">${product.name}</p>
-                <p class="products-block-price">${product.price}₽proverkabota</p>
+                <p class="products-block-price">${product.price}₽₽</p>
             </div>
             <button onclick="addCart(${product.id})" class="products-block-cart">
                 <p>Добавить</p>
@@ -165,34 +165,31 @@ tg.MainButton.color = "#2cab37";
     }
 
 
-    const params = new URLSearchParams(tg.initData);
-    const userParam = params.get('user');
-    const user = JSON.parse(userParam);
-    const username = user.username;
-    let usercard = document.querySelector(".header-container");
+    // const params = new URLSearchParams(tg.initData);
+    // const userParam = params.get('user');
+    // const user = JSON.parse(userParam);
+    // const username = user.username;
+    // let usercard = document.querySelector(".header-container");
     
-    if (username == null) {
-        usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${user.first_name}</p>`);
-    } else {
-        usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">@${user.username}</p>`);
-    }
+    // if (username == null) {
+    //     usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${user.first_name}</p>`);
+    // } else {
+    //     usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">@${user.username}</p>`);
+    // }
     
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     if (cart.length === 0) {
-        Telegram.WebApp.showAlert("Корзина пуста! Добавьте товары");
+        Telegram.WebApp.showAlert("Корзина пуста! Добавьте товары.");
         return;
     }
-
 
     const orderData = cart.map(item => ({
         id: item.id,
         name: item.name,
         price: item.price,
-        count: item.count,
-        description: item.description
+        count: item.count
     }));
 
-
     Telegram.WebApp.sendData(JSON.stringify(orderData));
-    Telegram.WebApp.close();
+    Telegram.WebApp.close();  
 });
