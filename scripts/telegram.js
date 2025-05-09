@@ -61,7 +61,7 @@ tg.MainButton.color = "#2cab37";
             <img src="img/sets/${product.id}.png" alt="set">
             <div class="products-block-text">
                 <p class="products-block-title">${product.name}</p>
-                <p class="products-block-price">${product.price}₽₽</p>
+                <p class="products-block-price">${product.price}₽</p>
             </div>
             <button onclick="addCart(${product.id})" class="products-block-cart">
                 <p>Добавить</p>
@@ -165,17 +165,18 @@ tg.MainButton.color = "#2cab37";
     }
 
 
-    // const params = new URLSearchParams(tg.initData);
-    // const userParam = params.get('user');
-    // const user = JSON.parse(userParam);
-    // const username = user.username;
-    // let usercard = document.querySelector(".header-container");
-    
-    // if (username == null) {
-    //     usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${user.first_name}</p>`);
-    // } else {
-    //     usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">@${user.username}</p>`);
-    // }
+    const user = tg.initDataUnsafe.user;
+    const usercard = document.querySelector(".header-container");
+
+    if (user) {
+        const username = user.username 
+            ? `@${user.username}` 
+            : user.first_name || 'Покупатель';
+        
+        usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${username}</p>`);
+    }
+
+
     
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     if (cart.length === 0) {
