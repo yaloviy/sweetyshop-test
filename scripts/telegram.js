@@ -109,17 +109,13 @@ tg.MainButton.color = "#2cab37";
 
             console.log(cart)
         
-            const totalPrice = cart.reduce((sum, product) => sum + product.price * product.count, 0);
-            const buttonText = `Оплатить ${totalPrice}₽enabledisable`;
+            const buttonText = `Оплатить ${cart.reduce((sum, product) => sum + product.price * product.count, 0)}₽proverkaaaaa`;
 
             tg.MainButton.setParams({
                 text: buttonText,
                 has_shine_effect: true,
                 is_progress_visible: true,
               });
-
-            tg.MainButton.disable()
-
 
             if (!tg.MainButton.isVisible) {
                 tg.MainButton.show();
