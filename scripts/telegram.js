@@ -8,15 +8,15 @@ tg.MainButton.color = "#2cab37";
 const usercard = document.querySelector(".header-container");
 
 
-// const user = tg.initDataUnsafe.user;
-// if (user) {
-//     const username = user.username 
-//         ? `@${user.username}` 
-//         : user.first_name || 'Покупатель';
-    
-// }
+const user = tg.initDataUnsafe.user;
+if (user) {
+    const username = user.username 
+        ? `@${user.username}` 
+        : user.first_name || 'Покупатель';
+    usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${username}</p>`);
+}
 
-usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">Добро пожаловать!</p>`);
+
 
     const products = [
         {
