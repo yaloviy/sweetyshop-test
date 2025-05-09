@@ -93,13 +93,12 @@ tg.MainButton.color = "#2cab37";
         if (cart.length === 0) {
             tg.MainButton.hide();
         } else {
+            const totalPrice = cart.reduce((sum, product) => sum + product.price * product.count, 0)
             if (tg.MainButton.is_visible) {
-                let totalPrice = cart.reduce((sum, product) => sum + product.price * product.count, 0)
-                tg.MainButton.setText(`Оплатить ${totalPrice}`);
+                tg.MainButton.setText(`Оплатить ${totalPrice} руб.`);
                 console.log(totalPrice)
             } else {
-                let totalPrice = cart.reduce((sum, product) => sum + product.price * product.count, 0)
-                tg.MainButton.setText(`Оплатить ${totalPrice}`);
+                tg.MainButton.setText(`Оплатить ${totalPrice} руб.`);
                 tg.MainButton.show();
                 console.log(totalPrice)
             }
