@@ -93,6 +93,7 @@ tg.MainButton.color = "#2cab37";
             const productIndex = cart.indexOf(product)
             cart[productIndex]['count'] = 1
             quantity(id)
+            tg.MainButton.show()
        } else {
             const productIndex = cart.indexOf(product)
             cart[productIndex]['count'] = cart[productIndex]['count'] + 1
@@ -119,6 +120,7 @@ tg.MainButton.color = "#2cab37";
         if (productInCart.count === 1) {
             cart.splice(productIndex, 1);
             document.getElementById(id).classList.remove('active')
+            tg.MainButton.hide()
         } else {
             productInCart['count'] = productInCart['count'] - 1
             quantity(id)
