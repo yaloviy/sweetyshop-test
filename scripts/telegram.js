@@ -5,17 +5,18 @@ tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = "#2cab37";
 
 
-const usercard = document.querySelector(".header-container");
+const urlParams = new URLSearchParams(window.location.search);
+const user = {
+    id: urlParams.get('user_id'),
+    first_name: urlParams.get('first_name'),
+    last_name: urlParams.get('last_name'),
+    username: urlParams.get('username')
+};
 
-
-const user = tg.initDataUnsafe.user;
-if (user) {
-    const username = user.username 
-        ? `@${user.username}` 
-        : user.first_name || 'Покупатель';
+if (user.id) {
+    const username = user.username || user.first_name || 'Покупатель';
     usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${username}</p>`);
 }
-
 
 
     const products = [
