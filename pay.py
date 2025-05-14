@@ -12,8 +12,8 @@ from aiogram.types import (
 )
 from urllib.parse import quote
 
-BOT_TOKEN = "7843913643:AAF7EEl-lz98UGblX16PyxOmJq60Mha8hZU"
-PROVIDER_TOKEN = "1744374395:TEST:cf94e0f4339917b14ba4"
+BOT_TOKEN = ""
+PROVIDER_TOKEN = ""
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
