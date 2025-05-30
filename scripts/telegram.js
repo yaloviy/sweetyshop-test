@@ -186,10 +186,6 @@ usercard.insertAdjacentHTML("afterbegin", `<p class="telegram-username">${isEmpt
        }
     }
     
-    
-
-
-
     function removeCart (id) {
         const product = products.find(product => product.id === id)
         productInCart = cart.find(product => product.id === id)

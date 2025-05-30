@@ -1,5 +1,5 @@
 .header-burger {
-    display: none;
+    /* display: none; */
     cursor: pointer;
     background-color: var(--tg-theme-text-color);
     width: 25px;
