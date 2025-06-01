@@ -1,4 +1,5 @@
 .header-burger {
+    /* display: flex; */
     cursor: pointer;
     background-color: var(--tg-theme-text-color);
     width: 25px;
