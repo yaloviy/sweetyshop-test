@@ -83,3 +83,8 @@ section .container {
     text-align: center;
     color: var(--tg-theme-text-color);
 }
+
+
+section {
+    background-color: var(--tg-theme-bg-color);
+}
