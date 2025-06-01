@@ -88,3 +88,7 @@ section .container {
 section {
     background-color: var(--tg-theme-bg-color);
 }
+
+main {
+    background-color: var(--tg-theme-bg-color);
+}
